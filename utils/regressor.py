@@ -4,6 +4,7 @@ from sklearn.metrics import mean_absolute_percentage_error, mean_absolute_error,
 import sklearn.metrics as metrics
 import numpy as np
 import pandas as pd
+import streamlit as st
 
 def features(df: pd.DataFrame):
     """

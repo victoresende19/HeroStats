@@ -2,12 +2,10 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from io import StringIO
-
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.manifold import TSNE
-
 import plotly.express as px
 
 @st.cache_data(show_spinner=False, ttl=24*3600, max_entries=2)
