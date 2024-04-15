@@ -28,6 +28,7 @@ def features(df: pd.DataFrame):
     feature_importances = pd.Series(model.feature_importances_, index=X_train.columns).sort_values(ascending=False)
     return feature_importances
 
+@st.cache_data(show_spinner=False, ttl=24*3600, max_entries=2)
 def regressor(df: pd.DataFrame):
     """
     Esta função faz a previsão do peso.

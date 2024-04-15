@@ -10,7 +10,7 @@ from sklearn.manifold import TSNE
 
 import plotly.express as px
 
-
+@st.cache_data(show_spinner=False, ttl=24*3600, max_entries=2)
 def pca(df: pd.DataFrame):
     """
     Recebe um dataframe para fazer a redução de dimensionalidade dos dados.
@@ -26,6 +26,7 @@ def pca(df: pd.DataFrame):
     data_pca = pca.fit_transform(df)
     return data_pca
 
+@st.cache_data(show_spinner=False, ttl=24*3600, max_entries=2)
 def find_optimal_clusters(data, min_clusters, max_clusters):
     """
     Esta função calcula o KMeans para diferentes quantidades de clusters, de 'min_clusters' até 'max_clusters',
@@ -52,6 +53,7 @@ def find_optimal_clusters(data, min_clusters, max_clusters):
     
     return optimal_n_clusters, best_score
 
+@st.cache_data(show_spinner=False, ttl=24*3600, max_entries=2)
 def kmeans(num_clusters: int, data_pca: list, df_powers: pd.DataFrame):
     """
     Esta função faz a aplicação do algoritmo KMeans utilizando o número de clusters ideiais
