@@ -10,7 +10,7 @@ from utils.regressor import regressor, features
 st.set_page_config(layout="wide", page_icon='🦸', page_title='HeroStats')
 st.markdown(style(), unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: left; font-size:52px; color: white'>HeroStats</h1>",unsafe_allow_html=True)
-st.markdown("<p style='text-align: left; font-size:16px'>A HeroStats é uma instituição de heróis a qual visa consolidar heróis durante o mundo. Nossa missão é utilizar dados e técnicas estatísticas para melhores tomadas de decisão, seja para estratégias de ação, contratação ou gerenciamento. Explore as abas e descubra nossas análises!</p><br><br>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: left; font-size:16px'>A HeroStats é uma instituição de heróis a qual visa consolidar heróis durante o mundo. Nossa missão é utilizar dados e técnicas estatísticas para melhores tomadas de decisão, seja para estratégias de ação, contratação ou gerenciamento. Explore as abas e entenda nossas análises!</p><br><br>", unsafe_allow_html=True)
 eda, cluster, align, weigth = st.tabs(["Exploração dos dados", "Formação de equipes", "Alinhamento", "Previsão do peso"])
 
 
@@ -79,7 +79,7 @@ with eda:
         st.plotly_chart(scatter_plot(df_hero_info, 'Height', 'Weight', cor='Alignment', titulo='Avaliação dos peso e altura por alinhamento'))
 
     st.markdown("<h1 style='text-align: left; font-size:52px; color: white'>Poderes</h1>",unsafe_allow_html=True)
-    st.markdown("<p style='text-align: left; font-size:16px'>O que torna uma pessoa comum em herói? A capacidade de salvar ou proteger outras pessoas? Ter poderes? Isso! Porém a grande diferença esta no uso desse poder, para o bem ou mal. Assim, abaixo estão alguns pontos interessantes sobre os poderes dos super-heróis. </p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: left; font-size:16px'>O que torna uma pessoa comum em herói? A capacidade de salvar ou proteger outras pessoas? Ter poderes? Isso! Porém a grande diferença esta no uso desse poder, para o bem ou mau. Assim, abaixo estão alguns pontos interessantes sobre os poderes dos super-heróis. </p>", unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
     with col1:
@@ -111,11 +111,11 @@ with cluster:
     st.write('')
     st.write('')
     st.write('')
-    st.markdown("<p style='text-align: left; font-size:16px'>Atualmente, a HeroStats trabalha para fazer as melhores divisões de equipes. Assim, visando as características dos poderes e a sinergia entre os membros, decidiu-se aplicar um algoritmo de clusterização, o KMeans. Assim, teremos equipes das quais os membros terão a melhor sinergia possível entre si. </p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: left; font-size:16px'>Atualmente, a HeroStats trabalha para fazer as melhores divisões de equipes. Assim, visando as características dos poderes e a sinergia entre os membros, decidiu-se aplicar um algoritmo de clusterização, o KMeans, aliado ao método de silhueta para encontrar a melhor quantidade de equipes. Assim, teremos equipes das quais os membros terão a melhor sinergia possível entre si. </p>", unsafe_allow_html=True)
     
     st.plotly_chart(TSNE_plot(data_pca, df_hero_powers, 'Distribuição dos clusters', 1750))
 
-    st.markdown("<p style='text-align: left; font-size:16px'>Agora com as equipes formadas, os heróis tem mais liberdade e sinergia para que possam atuar cada vez mais. Mas já pensou na possibilidade de descobrir em qual equipe seu herói foi alocado? Teste os filtros abaixo! </p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: left; font-size:16px'>Agora com as equipes formadas, os heróis tem mais liberdade e sinergia para que possam atuar cada vez mais. Mas, já pensou na possibilidade de descobrir em qual equipe seu herói foi alocado? Teste os filtros abaixo! </p>", unsafe_allow_html=True)
 
     with st.form(key='cluster'):
         with st.expander("Faça filtros para saber em qual equipe seu herói foi alocado!"):
@@ -188,7 +188,7 @@ with weigth:
     col2.metric("Porcentagem de erro (MAPE)", f"{round(mape, 2)}%")
     col3.metric("Erro absoluto (MAE)", round(mae, 2))
 
-    st.markdown("<p style='text-align: left; font-size:16px'>Por fim, visando a criação de uniformes e estratégias de ação dos heróis, foi solicitado à HeroStats conseguir prever o peso dos heróis a partir de determinadas características. Assim, foi utilizada a técnica de regressão com RandomForest por conta dos diversos outliers contidos na base, principalmente para os dados de peso. A seguir é possível testar o algoritmo e prever o peso dos heróis!</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: left; font-size:16px'>Por fim, visando a criação de uniformes e estratégias de ação dos heróis, foi solicitado à HeroStats conseguir prever o peso dos heróis a partir de determinadas características. Assim, foi utilizada a técnica de regressão com Random Forest por conta dos diversos outliers contidos na base, principalmente para os dados de peso. Além disso, para escolher a melhor característica a fim de prever o peso, utilizou-se a técnica de Feature Importance, do qual evidenciou o IMC (criado no processamento dos dados) como melhor preditora do peso. A seguir é possível testar o algoritmo e prever o peso dos heróis!</p>", unsafe_allow_html=True)
     pd.set_option('display.max_columns', None)
     pd.set_option('display.max_rows', None)
     features(df_heros)
