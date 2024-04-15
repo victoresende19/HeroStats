@@ -95,7 +95,7 @@ with eda:
 
 with cluster:
     data_pca = pca(df_hero_powers.drop('name', axis=1))
-    num_clusters, best_score = find_optimal_clusters(data_pca, 2, 30)
+    num_clusters, best_score = find_optimal_clusters(data_pca, 2, 10)
     df_hero_powers = kmeans(num_clusters, data_pca, df_hero_powers)
 
     perc_cluster_0 = (len(df_hero_powers[df_hero_powers.Cluster == 0])/len(df_hero_powers))*100
