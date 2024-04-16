@@ -10,7 +10,7 @@ from utils.regressor import regressor, features
 st.set_page_config(layout="wide", page_icon='🦸', page_title='HeroStats')
 st.markdown(style(), unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: left; font-size:52px; color: white'>HeroStats</h1>",unsafe_allow_html=True)
-st.markdown("<p style='text-align: left; font-size:16px'>A HeroStats é uma instituição de heróis a qual visa consolidar heróis durante o mundo. Nossa missão é utilizar dados e técnicas estatísticas para melhores tomadas de decisão, seja para estratégias de ação, contratação ou gerenciamento. Explore as abas e entenda nossas análises!</p><br><br>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: left; font-size:16px'>A HeroStats é uma instituição de heróis a qual visa consolidar heróis  pelo mundo. Nossa missão é utilizar dados e técnicas estatísticas para melhores tomadas de decisão, seja para estratégias de ação, contratação ou gerenciamento. Explore as abas e entenda nossas análises!</p><br><br>", unsafe_allow_html=True)
 eda, cluster, align, weigth = st.tabs(["Exploração dos dados", "Formação de equipes", "Alinhamento", "Previsão do peso"])
 
 
